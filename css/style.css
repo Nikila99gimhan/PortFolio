@@ -30,7 +30,10 @@ body
     line-height: 1.5;
     overflow-x: hidden;
     background-color: var(--bg-black-50);
-    overflow-y: hidden;
+
+}
+body.stop-scrolling{
+    overflow-y:hidden;
 }
 *:not(i)
 {
@@ -788,6 +791,13 @@ Service section
     flex-wrap: wrap;
 
 }
+.portfolio-section .portfolio-item.hide{
+  display: none;
+}
+.portfolio-section .portfolio-item.show{
+    display: block;
+    animation: fadeInTop 0.5s ease;
+}
 .portfolio-section .portfolio-item-inner{
     padding: 15px;
     border-radius:5px;
@@ -824,7 +834,7 @@ Service section
 
 }
 .portfolio-section .portfolio-item-details{
-    display: none;
+    display:none;
 
 }
 .portfolio-section .portfolio-item-inner{
@@ -847,12 +857,22 @@ portfolio popup
     height: 100%;
     z-index: 1000;
     overflow-y: scroll;
-    padding-bottom: 20px;;
+    padding-bottom: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.portfolio-popup.open{
+    visibility: visible;
+    opacity: 1;
 }
 .portfolio-popup .pp-details{
     max-width:1350px ;
     width: calc(85% + 30px);
     margin: auto;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
 }
 .portfolio-popup .pp-details-inner{
     padding: 30px 0;
@@ -879,12 +899,24 @@ portfolio popup
     padding-bottom: 10px;
 
 }
+.portfolio-popup .pp-title p span{
+    font-weight: 400;
+}
 .portfolio-popup .pp-project-details h3{
     font-size: 20px;
     font-weight: 600;
     color: var(--text-black-600);
     margin: 0 0 15px;
     text-transform: capitalize;
+}
+
+.portfolio-popup .description p{
+    font-size: 16px;
+    color: var(--text-black-600);
+    line-height: 26px;
+    margin: 0;
+
+
 }
 .portfolio-popup .description{
     flex: 0 0 65%;
@@ -895,6 +927,19 @@ portfolio popup
     flex: 0 0 35%;
     max-width: 35%;
     padding: 0 15px;
+}
+.portfolio-popup .info ul li{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-black-600);
+    font-size: 16px;
+}
+.portfolio-popup .info ul li span{
+   font-weight: 400;
+}
+.portfolio-popup .info ul li:last-child{
+    margin-bottom: 0;
 }
 .portfolio-popup .separator{
     height: 1px;
@@ -1006,3 +1051,23 @@ portfolio popup
 .portfolio-popup .pp-next{
     right: 15px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
